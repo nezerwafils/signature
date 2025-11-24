@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { userAPI } from '../services/api';
@@ -15,12 +15,7 @@ const ProfilePage = () => {
 
   const isOwnProfile = currentUser?.username === username;
 
-  useEffect(() => {
-    fetchProfile();
-    fetchUserPosts();
-  }, [username]);
-
-  const fetchProfile = async () => {
+  const fetchProfile = useCallback(async () => {
     try {
       const response = await userAPI.getProfile(username);
       setProfile(response.data);
@@ -28,9 +23,9 @@ const ProfilePage = () => {
     } catch (error) {
       console.error('Error fetching profile:', error);
     }
-  };
+  }, [username, currentUser?.id]);
 
-  const fetchUserPosts = async () => {
+  const fetchUserPosts = useCallback(async () => {
     try {
       const response = await userAPI.getUserPosts(username);
       setPosts(response.data.posts);
@@ -39,7 +34,12 @@ const ProfilePage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [username]);
+
+  useEffect(() => {
+    fetchProfile();
+    fetchUserPosts();
+  }, [fetchProfile, fetchUserPosts]);
 
   const handleFollow = async () => {
     try {
