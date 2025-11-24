@@ -28,6 +28,9 @@ const fileFilter = (req, file, cb) => {
   } else {
     cb(new Error('Invalid file type. Only audio files are allowed.'), false);
   }
+  
+  // Note: In production, consider adding additional validation by checking file headers
+  // to prevent MIME type spoofing
 };
 
 const upload = multer({

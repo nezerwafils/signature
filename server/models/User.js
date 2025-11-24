@@ -9,7 +9,14 @@ const userSchema = new mongoose.Schema({
     trim: true,
     minlength: [3, 'Username must be at least 3 characters'],
     maxlength: [30, 'Username must not exceed 30 characters'],
-    match: [/^[a-zA-Z0-9_]+$/, 'Username can only contain letters, numbers, and underscores']
+    match: [/^[a-zA-Z][a-zA-Z0-9_]*$/, 'Username must start with a letter and contain only letters, numbers, and underscores'],
+    validate: {
+      validator: function(v) {
+        const reserved = ['admin', 'root', 'system', 'api', 'www', 'vently'];
+        return !reserved.includes(v.toLowerCase());
+      },
+      message: 'This username is reserved'
+    }
   },
   password: {
     type: String,

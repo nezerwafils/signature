@@ -55,5 +55,6 @@ const postSchema = new mongoose.Schema({
 postSchema.index({ author: 1, createdAt: -1 });
 postSchema.index({ hashtags: 1 });
 postSchema.index({ createdAt: -1 });
+postSchema.index({ createdAt: -1, playCount: -1 }); // Compound index for discover feed
 
 module.exports = mongoose.model('Post', postSchema);

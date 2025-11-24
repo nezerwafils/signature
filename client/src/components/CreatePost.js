@@ -26,6 +26,8 @@ const CreatePost = ({ onPostCreated }) => {
 
       mediaRecorderRef.current.onstop = () => {
         const blob = new Blob(chunksRef.current, { type: 'audio/webm' });
+        // Note: The actual format may vary by browser. Chrome uses webm, Safari uses mp4.
+        // For production, consider detecting MediaRecorder.isTypeSupported()
         setAudioBlob(blob);
         stream.getTracks().forEach(track => track.stop());
       };
