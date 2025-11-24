@@ -16,9 +16,12 @@ const ProfilePage = () => {
   const isOwnProfile = currentUser?.username === username;
 
   useEffect(() => {
-    fetchProfile();
-    fetchUserPosts();
-  }, [username]);
+    const fetchData = async () => {
+      await fetchProfile();
+      await fetchUserPosts();
+    };
+    fetchData();
+  }, [username]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const fetchProfile = async () => {
     try {

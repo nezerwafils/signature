@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vently - Design Showcase</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6C5CE7;
+            --primary-dark: #5F3DC4;
+            --primary-light: #A29BFE;
+            --secondary: #00B894;
+            --accent: #FD79A8;
+            --bg-dark: #0F0F1E;
+            --bg-darker: #0A0A15;
+            --bg-card: #1A1A2E;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B8B8D0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .showcase {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(108, 92, 231, 0.3);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 16px;
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-text {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .tech-stack h2 {
+            font-size: 32px;
+            margin-bottom: 24px;
+        }
+
+        .tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .badge {
+            padding: 8px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            border-radius: 24px;
+            font-weight: 600;
+            color: var(--primary-light);
+        }
+
+        .footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(108, 92, 231, 0.2);
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase">
+        <div class="header">
+            <div class="logo">
+                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="120" y2="120">
+                            <stop offset="0%" stop-color="#6C5CE7" />
+                            <stop offset="50%" stop-color="#A29BFE" />
+                            <stop offset="100%" stop-color="#FD79A8" />
+                        </linearGradient>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <circle cx="60" cy="60" r="54" fill="url(#logoGradient)" opacity="0.2"/>
+                    <circle cx="60" cy="60" r="48" stroke="url(#logoGradient)" stroke-width="4" fill="none" filter="url(#glow)"/>
+                    <path d="M60 30v60M50 40v40M70 40v40M40 45v30M80 45v30M30 50v20M90 50v20" 
+                          stroke="white" 
+                          stroke-width="4" 
+                          stroke-linecap="round" 
+                          filter="url(#glow)"/>
+                </svg>
+            </div>
+            <h1><span class="gradient-text">Vently</span></h1>
+            <p class="tagline">Audio-Only Social Media Platform</p>
+            <p class="description">
+                A next-generation social platform where your voice tells the story. 
+                Share moments, connect with friends, and discover voices from around the world.
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                        <path d="M16 4v24M10 10v12M22 10v12M6 12v8M26 12v8"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Audio First</h3>
+                <p class="feature-text">Express yourself authentically with voice. No filters, just pure, real moments.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                        <circle cx="10" cy="10" r="4"/>
+                        <circle cx="22" cy="10" r="4"/>
+                        <circle cx="16" cy="22" r="4"/>
+                        <path d="M13 12l6 8M19 12l-6 8"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Real Connections</h3>
+                <p class="feature-text">Build meaningful relationships. Follow friends, discover new voices, engage authentically.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                        <path d="M16 4l3 6 6 3-6 3-3 6-3-6-6-3 6-3z"/>
+                        <circle cx="8" cy="8" r="1.5"/>
+                        <circle cx="24" cy="8" r="1.5"/>
+                        <circle cx="24" cy="24" r="1.5"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Simple & Beautiful</h3>
+                <p class="feature-text">Intuitive design that puts your content first. Easy signup with just username and password.</p>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h2>Built With Modern Technology</h2>
+            <div class="tech-badges">
+                <span class="badge">React</span>
+                <span class="badge">Node.js</span>
+                <span class="badge">Express</span>
+                <span class="badge">MongoDB</span>
+                <span class="badge">JWT Auth</span>
+                <span class="badge">Web Audio API</span>
+                <span class="badge">Responsive Design</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Vently</strong> - Your voice. Your moment. Your community.</p>
+            <p style="margin-top: 12px; font-size: 14px;">Production-ready audio social media platform</p>
+        </div>
+    </div>
+</body>
+</html>
