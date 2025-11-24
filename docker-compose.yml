@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: vently-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: vently
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - vently-network
+
+  backend:
+    build: ./backend
+    container_name: vently-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/vently
+      - JWT_SECRET=vently_super_secret_jwt_key_change_in_production_12345
+      - FRONTEND_URL=http://localhost:3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - ./backend/uploads:/app/uploads
+    networks:
+      - vently-network
+
+  frontend:
+    build: ./frontend
+    container_name: vently-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_API_URL=http://localhost:5000/api
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    networks:
+      - vently-network
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  vently-network:
+    driver: bridge
