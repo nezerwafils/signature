@@ -3,9 +3,10 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 const auth = require('../middleware/auth');
 const upload = require('../middleware/upload');
+const { createPostLimiter } = require('../middleware/rateLimiter');
 
 // Create post
-router.post('/', auth, upload.single('audio'), postController.createPost);
+router.post('/', auth, createPostLimiter, upload.single('audio'), postController.createPost);
 
 // Get feed
 router.get('/feed', auth, postController.getFeed);
