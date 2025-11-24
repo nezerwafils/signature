@@ -1,270 +1,252 @@
-# Vently - Audio-Only Social Media Platform
+# Vently 🎙️
 
-![Vently Logo](https://img.shields.io/badge/Vently-Audio%20Social-6C5CE7?style=for-the-badge)
+**Vently** is a modern audio-only social media platform where users share their voice, connect with communities, and discover trending audio content. Built with a focus on simplicity, creativity, and proactive user experience.
 
-Vently is a next-generation audio-only social media platform where users share voice moments, connect with friends, and discover new voices from around the world.
+![Vently Logo](https://img.shields.io/badge/Vently-Audio%20Social%20Media-8B5CF6?style=for-the-badge&logo=soundcloud&logoColor=white)
+
+## 📸 Screenshots
+
+**Login Page:**
+
+![Login Page](https://github.com/user-attachments/assets/4d40cf14-60a2-4c50-9147-28806faba2b1)
+
+**Registration Page:**
+
+![Register Page](https://github.com/user-attachments/assets/2c53a6b0-dee2-42cd-a68b-bfb35ec9f653)
 
 ## ✨ Features
 
-### Core Social Media Features
-- **Audio Posts**: Record and share voice moments up to 10MB
-- **User Profiles**: Customizable profiles with bio, avatar, and stats
-- **Follow System**: Follow/unfollow users to build your network
-- **Feed Algorithm**: Personalized feed from followed users
-- **Discover Page**: Explore trending content and new voices
-- **Interactions**: Like, comment, and share posts
-- **Notifications**: Real-time notifications for interactions
-- **Search**: Find users and content by username or hashtags
-- **Trending Hashtags**: Discover popular topics
+### Core Features
+- 🎤 **Audio Recording & Upload** - Record audio directly in-browser or upload audio files
+- 🎵 **Audio Playback** - Smooth, feature-rich audio player with controls
+- 👥 **Social Connections** - Follow users, build your community
+- ❤️ **Engagement** - Like, comment, and share audio posts
+- 🔍 **Discovery** - Explore trending content and search for users
+- 📊 **User Profiles** - Personalized profiles with stats and posts
+- 🔐 **Simple Authentication** - Sign up with just username & password (email optional for recovery)
 
-### Audio-Specific Features
-- **Voice Recording**: In-browser audio recording with microphone access
-- **Audio Playback**: Custom audio player with play/pause and seek controls
-- **Waveform Visualization**: Visual representation of audio
-- **Play Count Tracking**: Track how many times posts are played
-- **Duration Display**: Show audio length in player
+### Technical Features
+- 🎨 Modern, responsive UI with dark theme
+- 🚀 Production-ready architecture
+- 🔒 Secure authentication with JWT and rate limiting
+- 📱 Mobile-responsive design
+- ⚡ Fast and efficient API
+- 💾 MongoDB for data persistence
+- 🎯 RESTful API design
+- 🐳 Docker support for easy deployment
 
-### Authentication & Security
-- **Simple Signup**: Username and password only (email optional)
-- **Password Recovery**: Email-based account recovery (optional)
-- **JWT Authentication**: Secure token-based authentication
-- **Rate Limiting**: Protection against abuse
-- **Password Hashing**: Bcrypt for secure password storage
-- **Input Validation**: Server-side validation for all inputs
-
-### UI/UX Excellence
-- **Beautiful Design**: Modern, gradient-based color scheme
-- **Dark Theme**: Eye-friendly dark mode interface
-- **Responsive**: Mobile-first, works on all screen sizes
-- **Smooth Animations**: Fluid transitions and micro-interactions
-- **Loading States**: Clear feedback during operations
-- **Error Handling**: User-friendly error messages
-- **Accessibility**: Semantic HTML and ARIA labels
-
-## 🚀 Tech Stack
+## 🏗️ Tech Stack
 
 ### Backend
-- **Node.js** & **Express.js**: RESTful API server
-- **MongoDB** & **Mongoose**: Database and ODM
-- **JWT**: Authentication tokens
-- **Bcrypt**: Password hashing
-- **Multer**: File upload handling
-- **Helmet**: Security headers
-- **Compression**: Response compression
-- **Rate Limiting**: API protection
+- **Node.js** & **Express** - Fast, unopinionated web framework
+- **MongoDB** & **Mongoose** - NoSQL database with elegant ODM
+- **JWT** - Secure authentication
+- **Bcrypt** - Password hashing
+- **Multer** - File upload handling
+- **Express Validator** - Input validation
+- **Express Rate Limit** - API rate limiting
 
 ### Frontend
-- **React**: UI library
-- **React Router**: Client-side routing
-- **Axios**: HTTP client
-- **Context API**: State management
-- **CSS3**: Custom styling with CSS variables
-- **Web Audio API**: Audio recording and playback
+- **React** - UI library
+- **React Router** - Client-side routing
+- **Vite** - Fast build tool
+- **Axios** - HTTP client
+- **Lucide React** - Beautiful icons
+- **CSS3** - Custom styling with CSS variables
 
-## 📦 Installation
+## 📦 Quick Start
 
-### Prerequisites
-- Node.js v14 or higher
-- MongoDB v4.4 or higher
-- npm or yarn
+### Using Docker (Recommended)
 
-### Setup Instructions
+1. Clone the repository:
+```bash
+git clone https://github.com/nezerwafils/signature.git
+cd signature
+```
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/nezerwafils/signature.git
-   cd signature
-   ```
+2. Start all services:
+```bash
+docker-compose up -d
+```
 
-2. **Install dependencies**
-   ```bash
-   npm run install-all
-   ```
-
-3. **Configure environment variables**
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Edit `.env` and set:
-   - `PORT`: Server port (default: 5000)
-   - `MONGODB_URI`: MongoDB connection string
-   - `JWT_SECRET`: Secret key for JWT tokens
-   - `NODE_ENV`: Environment (development/production)
-
-4. **Start MongoDB**
-   ```bash
-   mongod
-   ```
-
-5. **Run the application**
-   
-   **Development mode** (runs both backend and frontend):
-   ```bash
-   npm run dev
-   ```
-   
-   **Production build**:
-   ```bash
-   npm run build
-   npm start
-   ```
-
-6. **Access the application**
+3. Access the application:
    - Frontend: http://localhost:3000
    - Backend API: http://localhost:5000
+
+### Manual Setup
+
+See [SETUP.md](./SETUP.md) for detailed installation instructions.
+
+## 🚀 Usage
+
+1. **Register**: Create an account with username and password (email optional)
+2. **Login**: Sign in with your credentials
+3. **Create Posts**: Record or upload audio content with captions
+4. **Discover**: Explore audio posts from the community
+5. **Engage**: Like, comment, and share posts
+6. **Connect**: Follow users and build your network
+7. **Profile**: View and manage your profile and posts
 
 ## 📁 Project Structure
 
 ```
 vently/
-├── server/                 # Backend code
-│   ├── index.js           # Express server entry point
-│   ├── models/            # Mongoose models
-│   │   ├── User.js
-│   │   ├── Post.js
-│   │   ├── Comment.js
-│   │   └── Notification.js
-│   ├── routes/            # API routes
-│   │   ├── auth.js
-│   │   ├── users.js
-│   │   ├── posts.js
-│   │   └── interactions.js
-│   ├── middleware/        # Custom middleware
-│   │   ├── auth.js
-│   │   └── upload.js
-│   └── utils/             # Utility functions
+├── backend/
+│   ├── src/
+│   │   ├── config/         # Database configuration
+│   │   ├── controllers/    # Route controllers
+│   │   ├── middleware/     # Custom middleware
+│   │   ├── models/         # Mongoose models
+│   │   └── routes/         # API routes
+│   ├── uploads/            # Uploaded audio files
+│   ├── server.js           # Entry point
+│   ├── Dockerfile
+│   └── package.json
 │
-├── client/                # Frontend code
-│   ├── public/           # Static assets
-│   └── src/
-│       ├── components/   # React components
-│       │   ├── Navbar.js
-│       │   ├── AudioPostCard.js
-│       │   └── CreatePost.js
-│       ├── pages/        # Page components
-│       │   ├── LandingPage.js
-│       │   ├── LoginPage.js
-│       │   ├── RegisterPage.js
-│       │   ├── HomePage.js
-│       │   ├── DiscoverPage.js
-│       │   ├── ProfilePage.js
-│       │   └── NotificationsPage.js
-│       ├── contexts/     # React contexts
-│       │   └── AuthContext.js
-│       ├── services/     # API services
-│       │   └── api.js
-│       ├── App.js        # Main app component
-│       └── index.js      # Entry point
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # Reusable components
+│   │   ├── context/        # React context providers
+│   │   ├── pages/          # Page components
+│   │   ├── services/       # API services
+│   │   ├── App.jsx         # Main app component
+│   │   └── index.css       # Global styles
+│   ├── Dockerfile
+│   └── package.json
 │
-├── uploads/              # Uploaded audio files
-├── package.json          # Root package.json
-└── README.md            # This file
+├── docker-compose.yml
+├── SETUP.md                # Setup guide
+├── DEPLOYMENT.md           # Deployment guide
+├── FEATURES.md             # Features overview
+└── README.md
 ```
 
-## 🎨 Design System
+## 🎨 Design Philosophy
 
-### Color Palette
-- **Primary**: `#6C5CE7` (Purple)
-- **Primary Light**: `#A29BFE` (Light Purple)
-- **Secondary**: `#00B894` (Teal)
-- **Accent**: `#FD79A8` (Pink)
-- **Danger**: `#FF7675` (Red)
-- **Background**: `#0F0F1E` (Dark)
-
-### Typography
-- **Font Family**: System fonts for optimal performance
-- **Headings**: 700 weight
-- **Body**: 400 weight
-- **Small Text**: 12-14px
+Vently's design focuses on:
+- **Simplicity**: Clean, intuitive interface
+- **Audio-First**: Audio content is the star
+- **Dark Theme**: Easy on the eyes, modern aesthetic
+- **Gradient Accents**: Purple-to-pink gradient (#8B5CF6 → #EC4899)
+- **Responsive**: Works seamlessly on all devices
+- **Accessibility**: Keyboard navigation and screen reader support
 
 ## 🔒 Security Features
 
+- **JWT Authentication**: Secure token-based authentication
 - **Password Hashing**: Bcrypt with salt rounds
-- **JWT Tokens**: Secure, expiring tokens
-- **Rate Limiting**: Prevents brute force attacks
-- **Input Sanitization**: Validates all user inputs
-- **Helmet.js**: Sets security HTTP headers
-- **CORS**: Configured for production use
-- **File Upload Limits**: Max 10MB audio files
-- **File Type Validation**: Only audio files accepted
+- **Input Validation**: Express-validator on all endpoints
+- **Rate Limiting**: 
+  - General API: 100 requests per 15 minutes
+  - Authentication: 5 attempts per 15 minutes
+  - Post creation: 10 posts per hour
+- **CORS Configuration**: Controlled cross-origin access
+- **File Validation**: Type and size restrictions on uploads
 
-## 📱 API Endpoints
+## 📝 API Documentation
 
-### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `POST /api/auth/recover` - Password recovery
+### Authentication Endpoints
 
-### Users
-- `GET /api/users/:username` - Get user profile
-- `PUT /api/users/profile` - Update own profile
-- `POST /api/users/:username/follow` - Follow user
-- `POST /api/users/:username/unfollow` - Unfollow user
-- `GET /api/users/:username/posts` - Get user's posts
-- `GET /api/users/search/query` - Search users
+```
+POST /api/auth/register      - Register new user
+POST /api/auth/login         - Login user
+GET  /api/auth/me            - Get current user
+PUT  /api/auth/profile       - Update profile
+GET  /api/auth/profile/:username - Get user profile
+```
 
-### Posts
-- `POST /api/posts` - Create post (with audio upload)
-- `GET /api/posts/feed` - Get personalized feed
-- `GET /api/posts/discover` - Get discover feed
-- `GET /api/posts/:id` - Get single post
-- `DELETE /api/posts/:id` - Delete post
-- `POST /api/posts/:id/play` - Increment play count
-- `GET /api/posts/hashtag/:tag` - Get posts by hashtag
-- `GET /api/posts/trending/hashtags` - Get trending hashtags
+### Posts Endpoints
 
-### Interactions
-- `POST /api/interactions/posts/:id/like` - Like/unlike post
-- `POST /api/interactions/posts/:id/comment` - Comment on post
-- `GET /api/interactions/posts/:id/comments` - Get post comments
-- `DELETE /api/interactions/comments/:id` - Delete comment
-- `POST /api/interactions/comments/:id/like` - Like comment
-- `POST /api/interactions/posts/:id/share` - Share post
-- `GET /api/interactions/notifications` - Get notifications
-- `PUT /api/interactions/notifications/:id/read` - Mark notification as read
-- `PUT /api/interactions/notifications/read-all` - Mark all as read
+```
+POST   /api/posts            - Create new post
+GET    /api/posts/feed       - Get user feed
+GET    /api/posts/discover   - Get discover posts
+GET    /api/posts/user/:username - Get user posts
+GET    /api/posts/:id        - Get single post
+POST   /api/posts/:id/like   - Like/unlike post
+POST   /api/posts/:id/comment - Add comment
+DELETE /api/posts/:id        - Delete post
+```
 
-## 🌟 Usage
+### Users Endpoints
 
-### Creating an Account
-1. Visit the landing page
-2. Click "Get Started" or "Create Account"
-3. Enter username and password (email optional)
-4. Start sharing your voice!
+```
+POST /api/users/:username/follow   - Follow user
+POST /api/users/:username/unfollow - Unfollow user
+GET  /api/users/:username/followers - Get followers
+GET  /api/users/:username/following - Get following
+GET  /api/users/search             - Search users
+```
 
-### Recording Audio
-1. Click "Start Recording" button
-2. Allow microphone access when prompted
-3. Speak your message
-4. Click "Stop Recording"
-5. Add caption and hashtags (optional)
-6. Click "Post" to share
+## 🛠️ Development
 
-### Discovering Content
-1. Navigate to "Discover" page
-2. Browse trending hashtags
-3. Listen to popular posts
-4. Follow interesting users
+### Running Tests
+```bash
+# Backend tests
+cd backend
+npm test
+
+# Frontend tests
+cd frontend
+npm test
+```
+
+### Building for Production
+
+```bash
+# Backend
+cd backend
+npm start
+
+# Frontend
+cd frontend
+npm run build
+npm run preview
+```
+
+## 🚢 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for comprehensive deployment instructions including:
+- Heroku deployment
+- Railway deployment
+- DigitalOcean deployment
+- Docker deployment
+- Database setup with MongoDB Atlas
+- SSL/HTTPS configuration
+- File storage options (AWS S3, Cloudinary)
+
+## 📚 Additional Documentation
+
+- [SETUP.md](./SETUP.md) - Detailed setup instructions
+- [DEPLOYMENT.md](./DEPLOYMENT.md) - Production deployment guide
+- [FEATURES.md](./FEATURES.md) - Complete features overview
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the ISC License.
 
-## 👥 Authors
+## 👏 Acknowledgments
 
-Created with ❤️ by the Vently team
-
-## 🙏 Acknowledgments
-
+- Icons by [Lucide Icons](https://lucide.dev/)
 - Inspired by modern social media platforms
-- Built with best practices in mind
-- Designed for scalability and performance
+- Built with love for the audio creator community
+
+## 📧 Contact
+
+For questions, issues, or suggestions, please open an issue on GitHub.
 
 ---
 
-**Vently** - Your voice. Your moment. Your community.
+**Made with ❤️ by the Vently Team**
+
+Vently - *Your voice, your community* 🎙️
